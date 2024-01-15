@@ -24,7 +24,7 @@ for (int i = 0; i < maximumGuesses; i++)
         else if (userInput != intSecretNumber)
         {
             Console.WriteLine($@"Guess {i + 1}: 
-Looks like you didn't guess the secret number. You have {4 - (i+1)} guesses left.");
+Your guess was too {(userInput > intSecretNumber ? "high" : "low")}. You have {4 - (i+1)} guesses left.");
         }
     }
     catch (FormatException)
