@@ -4,22 +4,25 @@ Can you guess the secret number?
 
 string guessPrompt = "What do you think the secret number is?";
 int secretNumber = 42;
+int maximumGuesses = 4;
 
 Console.WriteLine(greeting);
 Console.WriteLine(guessPrompt);
-string userInput = null;
-while (userInput == null)
+int userInput = 0;
+
+for (int i = 0; i < maximumGuesses; i++)
 {
     try
     {
-        int intUserInput = Convert.ToInt32(Console.ReadLine());
-        if (intUserInput == secretNumber)
+        userInput = Convert.ToInt32(Console.ReadLine());
+        if (userInput == secretNumber)
         {
-            Console.WriteLine("Congratulations! You guessed the secret number.");
+            Console.WriteLine($"Guess number {i +1}: Congratulations! You guessed the secret number.");
+            break;
         }
-        else if (intUserInput != secretNumber)
+        else if (userInput != secretNumber)
         {
-            Console.WriteLine("Looks like you didn't guess the secret number. Better luck next time!");
+            Console.WriteLine($"Guess number {i + 1}: Looks like you didn't guess the secret number. Try again!");
         }
     }
     catch (FormatException)
@@ -32,7 +35,7 @@ while (userInput == null)
         Console.WriteLine("Try again.");
     }
 }
-Console.WriteLine("Goodbye.");
+Console.WriteLine("GAME OVER");
 
 
 
